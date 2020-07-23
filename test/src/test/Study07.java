@@ -4,19 +4,23 @@ public class Study07 {
 
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
-		Teppan t = new Teppan();
-		t.setTemp();
-		System.out.println("現在の温度は"+t.getTemp()+"度です。");
-		t.setTemp(200);
-		System.out.println("現在の温度は"+t.getTemp()+"度です。");
-		System.out.println(t.yaku());
+		Teppan t1 = new Teppan();
+		Teppan t2 = new Teppan();
+		Teppan t3 = new Teppan();
+		System.out.println("鉄板は"+ Teppan.cnt+"枚です。");
+		System.out.println("鉄板は"+ Teppan.getCnt()+"枚です。");
 	}
 
 }
 class Teppan{//鉄板クラス
-	private int temp=180;//鉄板温度
+	private int temp=0;//鉄板温度
+	static public int cnt=0;
+	static int getCnt() {
+		return cnt;
+	}
 	Teppan(){
 		this.temp=0;
+		cnt++;
 	}
 	void setTemp() {
 		this.temp=180;

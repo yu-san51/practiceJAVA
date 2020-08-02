@@ -10,7 +10,7 @@ public class Car {
 	}
 	
 	public void move(int km) {
-		System.out.println(km+"キロは知ります。");
+		System.out.println(km+"キロ走ります。");
 		this.fuelAmount -=(km/fuelCost);
 	}
 	

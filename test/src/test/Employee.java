@@ -8,7 +8,7 @@ public class Employee extends Ningen {
 		this.department = department;
 	}
 
-	public String getEmployeeProfile() {
+	public String getProfile() {
 		String profile = "年齢は" + this.age + "です";
 		profile += "サラリーマンで、部署は" + this.department + "です";
 		return profile;

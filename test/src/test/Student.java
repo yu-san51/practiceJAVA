@@ -8,7 +8,7 @@ public class Student extends Ningen {
 		this.score = score;
 	}
 
-	public String getStudentProfile() {
+	public String getProfile() {
 		String profile = "年齢は" + super.age + "です";
 		profile += "学生で、テストの点数は" + this.score + "点です";
 		return profile;

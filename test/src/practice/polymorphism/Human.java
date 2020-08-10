@@ -1,9 +1,7 @@
-package practice.extend.human;
+package practice.polymorphism;
 
 public class Human {
-	//	privateは自分からしかアクセスできないからgetメソッド
 	private String name;
-	//	protectedはサブクラスからでもアクセスできる
 	protected int age;
 
 	public Human(String name, int age) {
@@ -11,7 +9,8 @@ public class Human {
 		this.age = age;
 	}
 
-	public String getName() {
+	//オーバーライド禁止（final修飾子）
+	final public String getName() {
 		return this.name;
 	}
 
@@ -19,4 +18,7 @@ public class Human {
 		return this.age;
 	}
 
+	public String getProfile() {
+		return "名前は" + this.name + "、年齢は" + this.age + "です";
+	}
 }

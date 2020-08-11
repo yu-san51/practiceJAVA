@@ -22,6 +22,7 @@ public class Chapter15_2 {
 		Path outputPath = fs.getPath("output.txt");
 
 		//		FilesクラスでBufferedReaderクラスとBufferedWtiterクラスののインスタンスを生成
+//		"try-with-resources"----try（初期化)｛例外が発生する可能性のある処理｝catch{}
 		try (BufferedReader reader = Files.newBufferedReader(inputPath);
 				BufferedWriter writer = Files.newBufferedWriter(outputPath);) {
 

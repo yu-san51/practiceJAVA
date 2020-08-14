@@ -1,11 +1,10 @@
 package application.capter03;
 
-
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
-
-public class List {
+public class ListTest {
 
 	//	List　配列と同じようにインデックス番号順に要素(オブジェクト）を管理する。
 	//	重複した要素を保持することも可能
@@ -36,8 +35,7 @@ public class List {
 		System.out.println(a);
 
 		//		引数にある要素がリストに含まれるか検査(ture or false)  contains()
-		a = list1.contains("バナナ");
-		System.out.println(a);
+		System.out.println(list1.contains("バナナ"));
 
 		//		要素数がいくつか検査  size()
 		int b = list1.size();

@@ -1,7 +1,9 @@
-package application.capter03;
+package application.chapter03;
 
 import java.util.ArrayList;
+//インデックス指定で要素を取り出す、先頭から順に処理するのはArrayListのほうが早い
 import java.util.LinkedList;
+//要素の挿入、要素の削除はLinkedListのほうが早い
 import java.util.List;
 
 public class ListTest {
@@ -42,6 +44,14 @@ public class ListTest {
 		System.out.println(b);
 
 		//		要素の削除 remove
+		//		要素の中身を指定して削除
+		list1.remove("バナナ");
+		//		存在しない中身を指定しても何も起きない
+		list1.remove("なし");
+
+		//		位置を指定して要素を削除
+		list1.remove(0);
+		//		コレクションのリストよりも大きい位置を指定すると実行時にエラーとなる
 	}
 
 }

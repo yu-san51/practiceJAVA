@@ -49,6 +49,26 @@ public class MapTest {
 		map1.remove(3, "もも");
 		map1.remove(3, "なし");
 		System.out.println(map1);
+
+		//		拡張for 順番に要素を取り出して処理
+		Map<Integer, String> classmates = new HashMap<>();
+		classmates.put(1, "青木");
+		classmates.put(2, "石坂");
+		classmates.put(3, "小野田");
+
+		//		キーのみ取り出し
+		for (Integer key : classmates.keySet()) {
+			System.out.println(key);
+		}
+		//			値のみ取り出し
+		for (String name : classmates.values()) {
+			System.out.println(name);
+		}
+		//		キーと値のペアで取り出し
+		for (Map.Entry<Integer, String> classmate : classmates.entrySet()) {
+			System.out.println(classmate.getKey() + "番は" + classmate.getValue() + "です");
+
+		}
 	}
 
 }

@@ -52,6 +52,16 @@ public class ListTest {
 		//		位置を指定して要素を削除
 		list1.remove(0);
 		//		コレクションのリストよりも大きい位置を指定すると実行時にエラーとなる
+
+		//		拡張for　順番に要素を取り出して処理
+		List<String> prefectures = new ArrayList<>();
+		prefectures.add("北海道");
+		prefectures.add("青森県");
+		prefectures.add("秋田県");
+
+		for (String prefecture : prefectures) {
+			System.out.println(prefecture);
+		}
 	}
 
 }

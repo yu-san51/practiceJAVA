@@ -1,6 +1,8 @@
 package application.chapter04;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 //バスケットというクラスには特定の型の中身を一つ入れられる
 
@@ -41,6 +43,23 @@ class Basket<E extends Fruit> {
 
 		//		バスケットはフルーツクラスを継承しているため、ここにメソッドがなくてもgetNameが使える
 		appleBasket.printName();
+
+		//境界ワイルドカード
+		//境界型パラメーターで？記号を使用できる
+		List<Fruit> fruits = new ArrayList<>();
+		List<Apple> apples = new ArrayList<>();
+		//↑フルーツクラスとアップルクラスは親子関係であるが
+		//リスト化するとこの親子関係はなくなるのでフルーツにアップルを代入するとエラーとなる
+		//xxxx fruits = apples; xxxx 親子関係ではないので×
+		//xxxx fruits.add(new Peach("黄金桃", new BigDecimal(300)));実態とリストが違うものになってします×
+
+		//フルーツリストを引数にもつメソッドを他のリストで行うことも不可
+		// void doSomething(List<Fruit> fruits を　doSomething(apples) は×
+
+		//そのため継承クラスであれば要素として認める為のコード
+		List<? extends Fruit> fruits01; //フルーツを継承したクラスを指定
+		List<Apple> apples01 = new ArrayList<>();
+		//void doSomething(List<? extends Fruit> fruits01) を doSomething(apples);で処理可能
 
 	}
 

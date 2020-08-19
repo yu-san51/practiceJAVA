@@ -18,7 +18,7 @@ public class Chapter05 {
 		};
 		System.out.println(a.hello());
 
-		List<String> animals = Arrays.asList("dog", "cat","fox","elephant");
+		List<String> animals = Arrays.asList("dog", "cat", "fox", "elephant");
 		System.out.println(animals);
 		Collections.sort(
 				animals,

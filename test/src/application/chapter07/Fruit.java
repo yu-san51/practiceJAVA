@@ -3,6 +3,7 @@ package application.chapter07;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Fruit {
 	public String name;
@@ -69,5 +70,18 @@ public class Fruit {
 				.map(f -> f.order(20)) //中間操作20ずつ発注
 				.sorted((f1, f2) -> f1.quantity - f2.quantity) //中間操作個数の少ない順に並び変え
 				.forEach(System.out::println); //終端操作　出力
+
+		//在庫が10以下のフルーツの数
+		long count = fruits.stream()
+				.filter(f -> f.quantity <= 10)
+				.count();
+		System.out.println(count);
+
+		//個数の多い順に並べたフルーツのリスト
+		List<Fruit> sortedFruits = fruits.stream()
+				.sorted((f1, f2) -> f2.quantity - f1.quantity)
+				.collect(Collectors.toList());
+
+		System.out.println(sortedFruits);
 	}
 }

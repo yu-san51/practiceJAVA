@@ -39,6 +39,20 @@ public class GameMain {
 		//BorderLayout.NORTHでパネルを追加する位置を指定。今回は一番上
 		frame.add(headerPanel, BorderLayout.NORTH);
 
+		//コンテンツパネル
+		JPanel contentsPanel = new JPanel();
+		contentsPanel.setLayout(new BorderLayout());
+		contentsPanel.setBackground(Color.WHITE);
+		frame.add(contentsPanel, BorderLayout.CENTER);
+
+		//フッタパネル
+		JPanel footerPanel = new JPanel();
+		footerPanel.setLayout(new BorderLayout());
+		footerPanel.setBackground(Color.BLACK);
+		Dimension footerPanelDimension = new Dimension(640, 50);
+		footerPanel.setPreferredSize(footerPanelDimension);
+		frame.add(footerPanel, BorderLayout.SOUTH);
+
 		//ウィンドウ表示
 		frame.setVisible(true);
 	}

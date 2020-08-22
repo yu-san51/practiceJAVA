@@ -5,9 +5,10 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
+import javax.swing.JButton;//ボタン
 import javax.swing.JFrame;//ウィンドウの設定
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.JLabel;//パネル上の文字
+import javax.swing.JPanel;//パネル
 
 public class GameMain {
 
@@ -77,6 +78,21 @@ public class GameMain {
 		//		↓↓↓↓↓メソッド
 		Dimension footerPanelDimension = new Dimension(640, 50);
 		JPanel footerPanel = setPanel(Color.BLACK, footerPanelDimension);
+
+		//
+		//		ボタンを表示
+		JButton btnGu = new JButton("ぐー");
+		btnGu = setButton(btnGu);
+		footerPanel.add(btnGu, BorderLayout.WEST);
+
+		JButton btnChoki = new JButton("ちょき");
+		btnChoki = setButton(btnChoki);
+		footerPanel.add(btnChoki, BorderLayout.CENTER);
+
+		JButton btnPa = new JButton("ぱー");
+		btnPa = setButton(btnPa);
+		footerPanel.add(btnPa, BorderLayout.EAST);
+
 		frame.add(footerPanel, BorderLayout.SOUTH);
 
 		//
@@ -101,6 +117,16 @@ public class GameMain {
 		label.setHorizontalAlignment(JLabel.CENTER);
 		label.setVerticalAlignment(JLabel.CENTER);
 		return (label);
+	}
+
+	//	ボタンの設定メソッド
+	public static JButton setButton(JButton button) {
+		int buttonSizeX = (640 - 20)/ 3; //横並びにしたいので3つで割る
+		Dimension buttonDimension = new Dimension(buttonSizeX, 50);
+		button.setPreferredSize(buttonDimension);
+		Font buttonFont = new Font("MS　ゴシック", Font.PLAIN, 24);
+		button.setFont(buttonFont);
+		return (button);
 	}
 
 }

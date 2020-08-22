@@ -3,8 +3,10 @@ package com.orinigal_game.janken;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 
 import javax.swing.JFrame;//ウィンドウの設定
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class GameMain {
@@ -41,6 +43,10 @@ public class GameMain {
 		//↓↓↓↓メソッドを使って使いまわせるようにする
 		Dimension headerPanelDimension = new Dimension(640, 50);
 		JPanel headerPanel = setPanel(Color.BLACK, headerPanelDimension);
+		//		フォント設定メソッド
+		JLabel headerLabel = new JLabel("「さあ、じゃんけんで勝負だっ！」");
+		headerLabel = setFont(Color.WHITE, headerLabel, 24);
+		headerPanel.add(headerLabel);
 		frame.add(headerPanel, BorderLayout.NORTH);
 
 		//
@@ -54,6 +60,9 @@ public class GameMain {
 		//↓↓↓↓↓メソッド
 		Dimension contentsPanelDimension = new Dimension(640, 50);
 		JPanel contentsPanel = setPanel(Color.WHITE, contentsPanelDimension);
+		JLabel contentsLabel = new JLabel("じゃんけん・・・");
+		contentsLabel = setFont(Color.BLACK, contentsLabel, 54);
+		contentsPanel.add(contentsLabel);
 		frame.add(contentsPanel, BorderLayout.CENTER);
 
 		//
@@ -75,12 +84,23 @@ public class GameMain {
 		frame.setVisible(true);
 	}
 
+	//	パネルの設定のメソッド
 	public static JPanel setPanel(Color color, Dimension PanelDimension) {
 		JPanel panel = new JPanel();
 		panel.setPreferredSize(PanelDimension);
 		panel.setLayout(new BorderLayout());
 		panel.setBackground(color);
 		return (panel);
+	}
+
+	//	フォント設定のメソッド
+	public static JLabel setFont(Color clr, JLabel label, int strSize) {
+		label.setForeground(clr);
+		Font labelFont = new Font("MS　ゴシック", Font.PLAIN, strSize);
+		label.setFont(labelFont);
+		label.setHorizontalAlignment(JLabel.CENTER);
+		label.setVerticalAlignment(JLabel.CENTER);
+		return (label);
 	}
 
 }

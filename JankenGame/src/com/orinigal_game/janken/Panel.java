@@ -10,6 +10,9 @@ import javax.swing.JLabel;//パネル上の文字
 import javax.swing.JPanel;//パネル
 
 public class Panel {
+	//プレイヤークラスのメソッドを呼び出すために宣言
+	public static JLabel headerLabel;
+	public static JLabel contentsLabel;
 
 	public static void createPanel(JFrame frame) {
 
@@ -30,7 +33,7 @@ public class Panel {
 		Dimension headerPanelDimension = new Dimension(640, 50);
 		JPanel headerPanel = setPanel(Color.BLACK, headerPanelDimension);
 		//		フォント設定メソッド
-		JLabel headerLabel = new JLabel("「さあ、じゃんけんで勝負だっ！」");
+		headerLabel = new JLabel("「さあ、じゃんけんで勝負だっ！」");
 		headerLabel = setFont(Color.WHITE, headerLabel, 24);
 		headerPanel.add(headerLabel);
 		frame.add(headerPanel, BorderLayout.NORTH);
@@ -46,7 +49,7 @@ public class Panel {
 		//↓↓↓↓↓メソッド
 		Dimension contentsPanelDimension = new Dimension(640, 50);
 		JPanel contentsPanel = setPanel(Color.WHITE, contentsPanelDimension);
-		JLabel contentsLabel = new JLabel("じゃんけん・・・");
+		contentsLabel = new JLabel("じゃんけん・・・");
 		contentsLabel = setFont(Color.BLACK, contentsLabel, 54);
 		contentsPanel.add(contentsLabel);
 		frame.add(contentsPanel, BorderLayout.CENTER);
@@ -63,6 +66,8 @@ public class Panel {
 		//		↓↓↓↓↓メソッド
 		Dimension footerPanelDimension = new Dimension(640, 50);
 		JPanel footerPanel = setPanel(Color.BLACK, footerPanelDimension);
+		//プレイヤークラスのメソッドの呼び出し
+		Player.createButton(footerPanel);
 
 		frame.add(footerPanel, BorderLayout.SOUTH);
 

@@ -3,11 +3,14 @@ package com.orinigal_game.janken;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class Player {
+//インターフェイスの実装
+public class Player implements ActionListener {
 
 	//プレイヤーが操作するもののクラス
 	public static void createButton(JPanel footerPanel) {
@@ -33,6 +36,30 @@ public class Player {
 		button.setPreferredSize(buttonDimension);
 		Font buttonFont = new Font("MS　ゴシック", Font.PLAIN, 24);
 		button.setFont(buttonFont);
+		//プレイヤーを生成
+		Player player = new Player();
+		//actionperformedのよびだし
+		button.addActionListener(player);
+
 		return (button);
+	}
+
+		//プレイヤーが推したボタンをパネルに反映
+	public void actionPerformed(ActionEvent e) {
+		String command = e.getActionCommand();
+		int playerHand = 0;
+		if (command.equals("ぐー"))
+			playerHand = 1;
+		else if (command.equals("ちょき"))
+			playerHand = 2;
+		else if (command.equals("ぱー"))
+			playerHand = 3;
+
+		if (playerHand == 1)
+			Panel.contentsLabel.setText("ぐー");
+		else if (playerHand == 2)
+			Panel.contentsLabel.setText("ちょき");
+		else if (playerHand == 3)
+			Panel.contentsLabel.setText("ぱー");
 	}
 }

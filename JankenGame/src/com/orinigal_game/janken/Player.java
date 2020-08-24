@@ -12,9 +12,6 @@ import javax.swing.JPanel;
 //インターフェイスの実装
 public class Player implements ActionListener {
 
-	//じゃんけんで買ったポイントの宣言
-	private static int point = 0;
-
 	//プレイヤーが操作するもののクラス
 	public static void createButton(JPanel footerPanel) {
 		//
@@ -60,18 +57,7 @@ public class Player implements ActionListener {
 
 		int computerHand = Computer.decidesComputerHand();
 
-		int playerHandTemp = playerHand;
-		playerHandTemp++;
-
-		//買ったら1点、あいこはプラス0点、負ければ0点になる
-		if (playerHand == computerHand) {
-			Panel.contentsLabel.setText("あいこかよ！（" + point + "）");
-		} else if ((playerHand == 3 && computerHand == 1) || (playerHandTemp == computerHand)) {
-			point += 1;
-			Panel.contentsLabel.setText("お前の勝ちかよ！（" + point + "）");
-		} else {
-			point = 0;
-			Panel.contentsLabel.setText("お前の負けだよ（" + point + "）");
-		}
+		//ビクトリークラスのメソッド（勝敗とポイントについてのメソッド）の呼び出し
+		VictoryOrDefeat.decisionVictoryOrDefeat(computerHand, playerHand);
 	}
 }

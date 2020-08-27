@@ -1,8 +1,11 @@
 package practice;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,7 +25,8 @@ public class Labeling extends JFrame {
 
 		//setVisibleの前に呼び出さないと描画処理がうまくいかない
 		//init00();
-		init01();
+		//init01();
+		init02();
 
 		setVisible(true);
 	}
@@ -102,6 +106,49 @@ public class Labeling extends JFrame {
 		//		flowLayout.setVgap(20);
 		//		setLayout(flowLayout);
 
+	}
+
+	private void init02() {
+		//カードを重ねるような配置
+		//CardLayout#nextメソッドで次のカードを表示できる
+		CardLayout cardLayout = new CardLayout();
+		setLayout(cardLayout);
+
+		Border border = new LineBorder(Color.YELLOW);
+		setLayout(cardLayout);
+
+		JLabel label1 = new JLabel("ラベル1A");
+		label1.setBorder(border);
+		add(label1);
+
+		JLabel label2 = new JLabel("ラベル2AB");
+		label2.setBorder(border);
+		add(label2);
+
+		JLabel label3 = new JLabel("ラベル3ABC");
+		label3.setBorder(border);
+		add(label3);
+
+		JLabel label4 = new JLabel("ラベル4ABCD");
+		label4.setBorder(border);
+		add(label4);
+
+		JLabel label5 = new JLabel("ラベル5ABCDE");
+		label5.setBorder(border);
+		add(label5);
+
+		JLabel[] labels = { label1, label2, label3, label4, label5 };
+		for (JLabel label : labels) {
+			//addMouseListnereメソッドでMouseAdapterを登録
+			//クリックすると次のラベルに切り替え
+			//コンポーネントの大きさは自動で全領域に広がる
+			label.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					cardLayout.next(getContentPane());
+				}
+			});
+		}
 	}
 
 }

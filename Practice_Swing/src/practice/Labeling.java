@@ -2,6 +2,7 @@ package practice;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,12 +21,13 @@ public class Labeling extends JFrame {
 		setSize(350, 250);
 
 		//setVisibleの前に呼び出さないと描画処理がうまくいかない
-		init();
+		//init00();
+		init01();
 
 		setVisible(true);
 	}
 
-	private void init() {
+	private void init00() {
 
 		//ラベル同士の隙間の間隔の調整　メソッドの先頭に書く
 		//BorderLayoutの引数を()にすると間隔はゼロになる
@@ -60,6 +62,45 @@ public class Labeling extends JFrame {
 		JLabel label5 = new JLabel("ラベル5");
 		label5.setBorder(border);
 		add(label5, BorderLayout.WEST);
+
+	}
+
+	private void init01() {
+		//右端で折り返して配置される（初期状態は中央,水平垂直の間隔は５）
+		//setLayout(new FlowLayout());
+
+		//配置にはFlowLayout.RIGHT LEFT CENTER LEADING TRAILINGを指定
+		setLayout(new FlowLayout(FlowLayout.LEFT, 10, 20));
+
+		Border border = new LineBorder(Color.BLUE);
+
+		JLabel label1 = new JLabel("ラベル1A");
+		label1.setBorder(border);
+		add(label1);
+
+		JLabel label2 = new JLabel("ラベル2AB");
+		label2.setBorder(border);
+		add(label2);
+
+		JLabel label3 = new JLabel("ラベル3ABC");
+		label3.setBorder(border);
+		add(label3);
+
+		JLabel label4 = new JLabel("ラベル4ABCD");
+		label4.setBorder(border);
+		add(label4);
+
+		JLabel label5 = new JLabel("ラベル5ABCDE");
+		label5.setBorder(border);
+		add(label5);
+
+		//コンポーネントの初期設定の間隔は５
+		//		FlowLayout flowLayout = new FlowLayout();
+		//水平方向の間隔の設定
+		//		flowLayout.setHgap(10);
+		//垂直方向の間隔の設定
+		//		flowLayout.setVgap(20);
+		//		setLayout(flowLayout);
 
 	}
 

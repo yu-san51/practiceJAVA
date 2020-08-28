@@ -4,6 +4,8 @@ import java.awt.FlowLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
@@ -18,7 +20,8 @@ public class Button extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(350, 250);
 
-		init();
+		//init();
+		init01();
 
 		setVisible(true);
 
@@ -46,6 +49,21 @@ public class Button extends JFrame {
 				button2.setEnabled(true);
 			}
 		});
+	}
+
+	private void init01() {
+		setLayout(new FlowLayout());
+
+		Icon icon = new ImageIcon("icon/77835836.png");
+
+		JButton button1 = new JButton(icon);
+		add(button1);
+
+		JButton button2 = new JButton(icon);
+		add(button2);
+
+		button1.setEnabled(true);
+		button2.setEnabled(false);
 	}
 
 }

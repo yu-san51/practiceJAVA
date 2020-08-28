@@ -21,7 +21,8 @@ public class Button extends JFrame {
 		setSize(350, 250);
 
 		//init();
-		init01();
+		//init01();
+		init02();
 
 		setVisible(true);
 
@@ -64,6 +65,25 @@ public class Button extends JFrame {
 
 		button1.setEnabled(true);
 		button2.setEnabled(false);
+	}
+
+	private void init02() {
+		setLayout(new FlowLayout());
+
+		Icon icon = new ImageIcon("icon/77835836.png");
+
+		JButton button1 = new JButton("test1", icon);
+		add(button1);
+
+		JButton button2 = new JButton("test2", icon);
+		add(button2);
+
+		button1.setEnabled(true);
+		button2.setEnabled(false);
+
+		//		文字列とアイコンの位置は以下で調節
+		//		public void setVerticalTextPosition(int textPosition)
+		//		public void setHorizonatalTextPosition(int textPosition)
 	}
 
 }

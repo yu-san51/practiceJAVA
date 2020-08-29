@@ -5,6 +5,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JToggleButton;
 
@@ -19,7 +20,8 @@ public class Button_another extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(350, 250);
 
-		initJToggleButton();
+		//initJToggleButton();
+		initJCheckBox();
 
 		setVisible(true);
 	}
@@ -37,6 +39,27 @@ public class Button_another extends JFrame {
 		button.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				System.out.println(toggleButton.isSelected());
+			}
+		});
+	}
+
+	private void initJCheckBox() {
+		//チェックボックス
+		setLayout(new FlowLayout());
+
+		JCheckBox checkBox1 = new JCheckBox("JCheckBox1");
+		add(checkBox1);
+
+		JCheckBox checkBox2 = new JCheckBox("JCheckBox2");
+		add(checkBox2);
+
+		JButton button = new JButton("JButton");
+		add(button);
+		//ぼったんを押すとチェックが入っているか否かを判定して返す
+		button.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("chewckBox1 is Selected : " + checkBox1.isSelected());
+				System.out.println("chewckBox2 is Selected : " + checkBox2.isSelected());
 			}
 		});
 	}

@@ -4,6 +4,7 @@ import java.awt.FlowLayout;
 import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JList;
 
@@ -19,7 +20,9 @@ public class JList_JComboBox extends JFrame {
 		setSize(350, 250);
 
 		//init_JList();
-		init_ListSelectionListener();
+		//init_ListSelectionListener();
+		//init_JComboBox();
+		init_ActionListener();
 
 		setVisible(true);
 	}
@@ -70,4 +73,37 @@ public class JList_JComboBox extends JFrame {
 		});
 	}
 
+	private void init_JComboBox() {
+		setLayout(new FlowLayout());
+
+		//いわゆるプルタブ形式
+		String[] data = { "item01", "item02", "item101", "item102" };
+		JComboBox<String> comboBox = new JComboBox<>(data);
+		add(comboBox);
+
+		//選択している項目を取得する
+		//最初の項目は0から数字で返す
+		JButton button = new JButton("取得");
+		add(button);
+		button.addActionListener(event -> {
+			int index = comboBox.getSelectedIndex();
+			System.out.println(index);
+		});
+	}
+
+	private void init_ActionListener() {
+		setLayout(new FlowLayout());
+
+		String[] data = { "item01", "item02", "item101", "item102" };
+		JComboBox<String> comboBox = new JComboBox<>(data);
+		add(comboBox);
+
+		//引数にActionListenerの実装クラスを指定することで、
+		//項目が選択されたときに実行される処理を記述することができる
+		//十字キーで項目を変更したときにも呼び出されてしまうので注意
+		comboBox.addActionListener(event -> {
+			System.out.println("選択されました");
+		});
+
+	}
 }

@@ -18,7 +18,8 @@ public class JList_JComboBox extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(350, 250);
 
-		init_JList();
+		//init_JList();
+		init_ListSelectionListener();
 
 		setVisible(true);
 	}
@@ -51,6 +52,22 @@ public class JList_JComboBox extends JFrame {
 			}
 		});
 
+	}
+
+	private void init_ListSelectionListener() {
+		setLayout(new FlowLayout());
+
+		String[] data1 = { "item01", "item02", "item101", "item102" };
+		JList<String> list1 = new JList<>(data1);
+		add(list1);
+
+		//選択項目が変更されたときに実行したい処理がある場合はリスナーを追加できる
+		list1.addListSelectionListener(event -> {
+			List<String> items = list1.getSelectedValuesList();
+			for (String s : items) {
+				System.out.println(s);
+			}
+		});
 	}
 
 }

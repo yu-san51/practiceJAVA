@@ -40,5 +40,10 @@ public class Slider extends JFrame {
 
 		JSpinner spinner3 = new JSpinner(new SpinnerNumberModel(0, -10000, 10, 1));
 		add(spinner3);
+
+		//現在の値を出力
+		spinner2.addChangeListener(event -> {
+			System.out.println("現在の値：" + spinner2.getValue());
+		});
 	}
 }

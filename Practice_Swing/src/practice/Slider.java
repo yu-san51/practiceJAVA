@@ -3,6 +3,7 @@ package practice;
 import java.awt.FlowLayout;
 
 import javax.swing.JFrame;
+import javax.swing.JSlider;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
@@ -17,7 +18,8 @@ public class Slider extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(350, 250);
 
-		init();
+		//init();
+		initSlider();
 
 		setVisible(true);
 	}
@@ -45,5 +47,19 @@ public class Slider extends JFrame {
 		spinner2.addChangeListener(event -> {
 			System.out.println("現在の値：" + spinner2.getValue());
 		});
+	}
+
+	private void initSlider() {
+		setLayout(new FlowLayout());
+		//引数を入れないときは範囲が0~100, 初期値が50の水平スライダが作成される
+		JSlider slider1 = new JSlider();
+		add(slider1);
+
+		JSlider slider2 = new JSlider(0, 10, 2);
+		add(slider2);
+
+		JSlider slider3 = new JSlider(-1000, 0, -100);
+		add(slider3);
+
 	}
 }

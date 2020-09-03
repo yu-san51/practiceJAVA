@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 
 import javax.swing.JFrame;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.text.Caret;
 
@@ -20,7 +21,8 @@ public class JTextField_JTextArea extends JFrame {
 
 		//init();
 		//init01();
-		init02();
+		//init02();
+		init03();
 
 		setVisible(true);
 	}
@@ -70,5 +72,15 @@ public class JTextField_JTextArea extends JFrame {
 		//選択領域の背景色と文字色を決める
 		textField.setSelectionColor(new Color(255, 0, 0));
 		textField.setSelectedTextColor(new Color(255, 255, 255));
+	}
+
+	private void init03() {
+		setLayout(new FlowLayout());
+
+		//テキストエリアの設置
+		//JTextArea(int rows, int columns)
+		//エンターで改行
+		JTextArea textArea = new JTextArea(10, 20);
+		add(textArea);
 	}
 }

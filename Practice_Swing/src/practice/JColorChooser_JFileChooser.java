@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
 public class JColorChooser_JFileChooser extends JFrame {
@@ -19,7 +20,8 @@ public class JColorChooser_JFileChooser extends JFrame {
 		setSize(700, 400);
 
 		//init();
-		init01();
+		//init01();
+		init02();
 
 		setVisible(true);
 	}
@@ -45,6 +47,26 @@ public class JColorChooser_JFileChooser extends JFrame {
 			//showDialog(this, タイトル表示, ダイアログが表示されたときの色を指定(nullの場合は白色))
 			Color color = JColorChooser.showDialog(this, "色選択", new Color(20, 30, 40));
 			System.out.println(color);
+		});
+	}
+
+	private void init02() {
+		setLayout(new FlowLayout());
+
+		JButton button = new JButton("ボタン");
+		add(button);
+
+		//userに自分のパソコンからファイルを選んでもらう
+		//JFileChooser.CANCEL_OPTION – 取り消し
+		//JFileChooser.APPROVE_OPTION – ファイルが選択された
+		//getSelectedFileで取得したファイルのパスを表示
+		button.addActionListener(event -> {
+			JFileChooser fileChooser = new JFileChooser();
+			int value = fileChooser.showOpenDialog(this);
+			if (value == JFileChooser.APPROVE_OPTION) {
+				System.out.println(fileChooser.getSelectedFile());
+			}
+
 		});
 	}
 }

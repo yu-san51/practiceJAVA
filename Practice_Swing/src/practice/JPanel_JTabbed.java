@@ -5,7 +5,9 @@ import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 import javax.swing.border.LineBorder;
 
 public class JPanel_JTabbed extends JFrame {
@@ -19,7 +21,8 @@ public class JPanel_JTabbed extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(350, 250);
 
-		init();
+		//init();
+		init01();
 
 		setVisible(true);
 	}
@@ -49,5 +52,20 @@ public class JPanel_JTabbed extends JFrame {
 		panel3.setBorder(new LineBorder(Color.YELLOW));
 		panel3.add(new JButton("ボタン3-1"));
 		add(panel3);
+	}
+
+	private void init01() {
+		//タブを持つコンポーネント
+		//Component add(String title, Component component)
+		//コンポーネントはJPanelのオブジェクトを指定するのが基本的
+
+		JTabbedPane tabbedPane = new JTabbedPane();
+		//タブが画面内に収まらない場合は処理をsetTabLayoutPolicyで設定できる
+		tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+		for (int i = 0; i < 10; i++) {
+			String s = "タブ" + i;
+			tabbedPane.add(s, new JLabel(s + "の内容です"));
+		}
+		add(tabbedPane);
 	}
 }

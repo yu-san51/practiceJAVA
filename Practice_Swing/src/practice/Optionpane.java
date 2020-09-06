@@ -21,8 +21,11 @@ public class Optionpane extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(350, 250);
 
-		init();
+		//init();
 		//init01();
+		//init02();
+		//init03();
+		init04();
 
 		setVisible(true);
 	}
@@ -72,4 +75,46 @@ public class Optionpane extends JFrame {
 		});
 	}
 
+	private void init02() {
+		//JOptionPane#showConfirmDialogの返り値がint型であり押されたボタンの判別ができる
+		setLayout(new FlowLayout());
+
+		JButton button = new JButton("表示");
+		add(button);
+		button.addActionListener(event -> {
+			int result = JOptionPane.showConfirmDialog(null, "テストメッセージ");
+			if (result == JOptionPane.YES_OPTION) {
+				System.out.println("Yes!!");
+			} else if (result == JOptionPane.NO_OPTION) {
+				System.out.println("No...");
+			} else if (result == JOptionPane.CANCEL_OPTION) {
+				System.out.println("Cancel!?!?");
+			} else if (result == JOptionPane.CLOSED_OPTION) {
+				System.out.println("Closed (;_;) ");
+			}
+		});
+	}
+
+	private void init03() {
+		//JOptionPane#showInputDialogはユーザーの入力値を返す
+		//OKボタンのときは空文字が返却され、取り消しはnullが返る
+		setLayout(new FlowLayout());
+
+		JButton button = new JButton("表示");
+		add(button);
+		button.addActionListener(event -> {
+			String result = JOptionPane.showInputDialog(null, "テストメッセージ");
+			System.out.println(result);
+		});
+	}
+
+	private void init04() {
+		setLayout(new FlowLayout());
+
+		JButton button = new JButton("表示");
+		add(button);
+		button.addActionListener(event -> {
+			JOptionPane.showMessageDialog(null, "テストメッセージ");
+		});
+	}
 }

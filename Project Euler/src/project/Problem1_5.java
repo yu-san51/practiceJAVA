@@ -13,7 +13,10 @@ public class Problem1_5 {
 
 		//problem2 Fibonacci数列の各行は前の2項を足すことで生成
 		//Fibonacci数列で4百万を超えない項を考え、偶数値の合計を求める
-		problem2();
+		//		problem2();
+
+		//数600851475143の最大素因数は何か？
+		problem3();
 	}
 
 	private int problem1(int n) {
@@ -40,6 +43,30 @@ public class Problem1_5 {
 			}
 		}
 		System.out.println(sum);
+	}
+
+	private void problem3() {
+		//まずは因数であるかどうかを調べる
+		long targetNumber = 600851475143L;
+		long factor = 1;
+		//forの開始は平方根の整数部分（素因数は必ずその数以下になる）
+		for (long i = (int) Math.sqrt((double) targetNumber); i > 1; i--) {
+			if (targetNumber % i == 0 && checkPrimaryOf(i)) {
+				factor = i;
+				break;
+			}
+		}
+		System.out.println(factor);
+	}
+
+	private boolean checkPrimaryOf(long n) {
+		//problem3で求めた因数画素数かどうか調べる
+		for (int i = 2; i <= (int) Math.sqrt((double) n); i++) {
+			if (n % i == 0) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 }

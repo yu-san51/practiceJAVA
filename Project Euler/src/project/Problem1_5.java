@@ -16,7 +16,11 @@ public class Problem1_5 {
 		//		problem2();
 
 		//数600851475143の最大素因数は何か？
-		problem3();
+		//		problem3();
+
+		//3桁の２つの数の積からなる回文数で最大のものを求める
+		//回文数とは両方から同じように読める数（ex.9009）
+		problem4();
 	}
 
 	private int problem1(int n) {
@@ -69,4 +73,24 @@ public class Problem1_5 {
 		return true;
 	}
 
+	private void problem4() {
+		int palindromicNumber = 0;
+		for (int i = 999; i > 900; i--) {
+			for (int j = 999 - (999 - i); j > 900; j--) {
+				int n = i * j;
+				if (checkPalindromicity(n) && palindromicNumber < n) {
+					palindromicNumber = n;
+				}
+
+			}
+		}
+		System.out.println(palindromicNumber);
+	}
+
+	private boolean checkPalindromicity(int n) {
+		//valueOf 戻り値が異なるものを指定のオブジェクトに変更
+		//StringBuilder 指定された引数と同じ文字を含む文字列を構築
+		//reverse() 文字を逆さまにしたもので置き換える
+		return Integer.valueOf((new StringBuilder(String.valueOf(n)).reverse().toString())) == n;
+	}
 }

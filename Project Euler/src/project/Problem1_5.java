@@ -20,7 +20,10 @@ public class Problem1_5 {
 
 		//3桁の２つの数の積からなる回文数で最大のものを求める
 		//回文数とは両方から同じように読める数（ex.9009）
-		problem4();
+		//		problem4();
+
+		//1から20のすべてで割れる最小の正の数は何か。
+		problem5();
 	}
 
 	private int problem1(int n) {
@@ -92,5 +95,25 @@ public class Problem1_5 {
 		//StringBuilder 指定された引数と同じ文字を含む文字列を構築
 		//reverse() 文字を逆さまにしたもので置き換える
 		return Integer.valueOf((new StringBuilder(String.valueOf(n)).reverse().toString())) == n;
+	}
+
+	private void problem5() {
+		int num = 2;
+		while (true) {
+			if (check(num)) {
+				break;
+			}
+			num++;
+		}
+		System.out.println(num);
+	}
+
+	private boolean check(int n) {
+		for (int i = 2; i <= 20; i++) {
+			if (n % i != 0) {
+				return false;
+			}
+		}
+		return true;
 	}
 }

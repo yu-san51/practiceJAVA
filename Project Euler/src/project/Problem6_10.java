@@ -12,6 +12,9 @@ public class Problem6_10 {
 	public Problem6_10() {
 		//自然数最初の10個の和の2乗と2乗の和の差を求めよ。
 		problem6();
+		
+		//10001番目の素数を求めよ.
+		problem7();
 	}
 
 	private void problem6() {
@@ -35,5 +38,9 @@ public class Problem6_10 {
 		}
 		//足されたものを2乗
 		return sum * sum;
+	}
+	
+	private void problem7(){
+		
 	}
 }

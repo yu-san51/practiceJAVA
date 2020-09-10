@@ -1,5 +1,8 @@
 package project;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Problem6_10 {
 
 	public static void main(String[] args) {
@@ -11,8 +14,8 @@ public class Problem6_10 {
 
 	public Problem6_10() {
 		//自然数最初の10個の和の2乗と2乗の和の差を求めよ。
-		problem6();
-		
+		//problem6();
+
 		//10001番目の素数を求めよ.
 		problem7();
 	}
@@ -39,8 +42,36 @@ public class Problem6_10 {
 		//足されたものを2乗
 		return sum * sum;
 	}
-	
-	private void problem7(){
-		
+
+	//problem7のための素数リスト
+	List<Integer> primeNumbers = new ArrayList<>();
+
+	private void problem7() {
+		primeNumbers.add(2);
+
+		int count = 1;
+		int num = 3;
+		while (count != 10001) {
+			if (check(num)) {
+				//checkメソッドでtrueだったものをArrayListに追加
+				primeNumbers.add(num);
+				count++;
+			}
+			num++;
+		}
+		//sizeメソッドはそのListの要素数を調べる
+		System.out.println(primeNumbers.get(primeNumbers.size() - 1));
+	}
+
+	private boolean check(int num) {
+		//素数かどうかを判定するメソッド
+		//numがArrayListに入っている素数すべてで割り切れるかどうか
+		//割り切れなければ素数(true)
+		for (Integer primeNumber : primeNumbers) {
+			if (num % primeNumber == 0) {
+				return false;
+			}
+		}
+		return true;
 	}
 }

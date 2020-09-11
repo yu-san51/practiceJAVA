@@ -21,7 +21,11 @@ public class Problem6_10 {
 
 		//13個の隣接した数字の積が最大のものを求めよ。その積の値は何か。
 		//13この数字は下記にdigitsとして記載
-		problem8();
+		//problem8();
+
+		//ピタゴラス数とはa < b < cで a^2 + b^2 = c^2を満たす数の組
+		// a + b + c = 1000となるピタゴラス数abcの積を求めよ。
+		problem9();
 	}
 
 	private void problem6() {
@@ -129,5 +133,22 @@ public class Problem6_10 {
 			product *= numbers[i];
 		}
 		return product;
+	}
+
+	private void problem9() {
+		//aとbを1からしらべる
+		//必ず見つかるかわからないからfor文
+		//二重ループであるからbreak文を使うためにLoopのラベル構文を使用
+		//breakだけだと一番内側のブロックを抜ける
+		//ラベルを付けることで、そのラベル付けしたブロックを抜けることができる
+		Loop: for (int a = 1; a < 1000; a++) {
+			for (int b = 1; b < 1000; b++) {
+				int c = 1000 - a - b;
+				if (a * a + b * b == c * c) {
+					System.out.println(a * b * c);
+					break Loop;
+				}
+			}
+		}
 	}
 }

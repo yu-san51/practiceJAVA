@@ -25,7 +25,10 @@ public class Problem6_10 {
 
 		//ピタゴラス数とはa < b < cで a^2 + b^2 = c^2を満たす数の組
 		// a + b + c = 1000となるピタゴラス数abcの積を求めよ。
-		problem9();
+		//problem9();
+
+		//2百万を超えない素数の全ての和を求めよ。
+		problem10();
 	}
 
 	private void problem6() {
@@ -150,5 +153,40 @@ public class Problem6_10 {
 				}
 			}
 		}
+	}
+
+	//broblem10で2000000を超えない数の素数を求めるため配列をつくる
+	boolean[] numbers = new boolean[2000000];
+
+	private void problem10() {
+		//booleanの初期値はfalseであるためtrueに設定
+		numbers[2] = true;
+		//偶数は確実に素数ではないため２ずつプラス
+		for (int i = 3; i < numbers.length; i += 2) {
+			if (check10(i)) {
+				//チェックでtrueだったもののみ格納
+				numbers[i] = true;
+			}
+		}
+
+		//素数の一つ目は2であるため初期値に
+		long sum = 2;
+		for (int i = 3; i < numbers.length; i += 2) {
+			if (numbers[i]) {
+				//チェックでtrueだっだものが格納されているmunbersを一つずつ足し算
+				sum += i;
+			}
+		}
+		System.out.println(sum);
+	}
+
+	private boolean check10(int num) {
+		//素数を求める
+		for (int i = 2; i <= (int) Math.sqrt(num); i++) {
+			if (numbers[i] && num % i == 0) {
+				return false;
+			}
+		}
+		return true;
 	}
 }

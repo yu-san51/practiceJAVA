@@ -10,7 +10,13 @@ public class Problem11_13 {
 	public Problem11_13() {
 		//～数字の格子～
 		//20×20格子の中で同じ方向で4つ隣接する数（下、右、斜め右下、斜め左下）の積で最大は何か？
-		problem11();
+		//problem11();
+
+		//500個以上の約数を持つ最初の三角数の値は何か？
+		//problem12();
+
+		//50個の100桁の数字の合計の最初の10桁を求めよ。
+		//problem13();
 
 	}
 
@@ -125,4 +131,37 @@ public class Problem11_13 {
 		}
 		return max;
 	}
+
+	private void problem12() {
+		long num = 0;
+		long triangleNumber = 0;
+		while (true) {
+			triangleNumber += ++num;
+			if (getCountOfDivisorsOf(triangleNumber) >= 500) {
+				break;
+			}
+		}
+		System.out.println(triangleNumber);
+	}
+
+	private int getCountOfDivisorsOf(long num) {
+		int count = 0;
+		double sqrtDouble = Math.sqrt(num);
+		int sqrtInt = (int) sqrtDouble;
+		for (long i = 1; i <= sqrtInt; i++) {
+			if (num % i == 0) {
+				//iが約数であれば2を足す
+				//約数を並べたときに積の組合せが中央で左右対称の位置にあるという性質から
+				//numの平方根より小さい約数にはそれとペアになるnumの平方根より大きい約数がある
+				count += 2;
+			}
+		}
+		//約数が元の数の平方根と等しい場合は2重にカウントしていることになるため調整
+		if (sqrtDouble - sqrtInt == 0) {
+			count--;
+		}
+		return count;
+	}
+
+
 }

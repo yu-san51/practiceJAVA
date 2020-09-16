@@ -66,12 +66,13 @@ public class Hello20200915 {
 				public void paint(Graphics g) {
 					super.paintComponents(g);
 					g.setColor(Color.ORANGE);
+					//点数ごとの人数の最大値を取得し 人数x最大値/横幅でグラフに対する割合を出力
 					g.fillRect(0, 0, (int) (count / maxCountFinal * getWidth()), getHeight());
 				}
 			};
 		}
 
-		//フレーム表示
+		//フレームに配置して表示
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("点数分布図");
